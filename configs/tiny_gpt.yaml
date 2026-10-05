@@ -1,0 +1,34 @@
+# Default MiniGPT configuration (about 3.2M parameters with a 65-char vocab)
+data:
+  path: data/input.txt
+  url: https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
+
+model:
+  context_length: 128     # tokens the model can see at once
+  d_model: 256            # embedding size
+  n_heads: 4              # attention heads (d_model must divide by n_heads)
+  n_layers: 4             # number of Transformer blocks
+  ffn_dim: null           # null -> 4 * d_model
+  dropout: 0.1
+  pos_type: sinusoidal    # sinusoidal | learned
+  tie_weights: false      # share token-embedding and LM-head weights (optional experiment)
+
+train:
+  batch_size: 64
+  max_steps: 5000
+  lr: 3.0e-4
+  min_lr: 3.0e-5          # cosine decay goes down to this
+  warmup_steps: 100
+  weight_decay: 0.01
+  grad_clip: 1.0
+  eval_interval: 250
+  eval_iters: 50
+  sample_interval: 1000   # print/save a generated sample every N steps (0 = off)
+  val_fraction: 0.1
+  seed: 1337
+  overfit_steps: 300      # used by --overfit
+
+generate:
+  temperature: 0.8
+  max_new_tokens: 300
+  top_k: 40

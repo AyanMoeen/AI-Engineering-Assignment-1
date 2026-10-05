@@ -1,0 +1,5 @@
+checkpoint: checkpoints/tiny_gpt.pt
+train loss: 1.2831
+val loss:   1.5154
+val perplexity: 4.55
+

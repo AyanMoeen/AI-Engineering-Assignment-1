@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+*.env
+.ipynb_checkpoints/
+.pytest_cache/
+# dataset is downloaded by a command (see data/README.md)
+data/*.txt
+# checkpoints are published as a GitHub Release / Drive link, not committed
+*.pt
+*.pth
+# keep the folders
+!data/.gitkeep
+!checkpoints/.gitkeep

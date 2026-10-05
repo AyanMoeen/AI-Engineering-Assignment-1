@@ -1,0 +1,104 @@
+=== depth = 2 ===
+ROMEO:
+That on your me slain, grace in with him hus.
+
+DUKE VINCENTIO:
+And with speous charge son, losdown you as it in out
+to his of his sing dead him!
+
+FROMEO:
+O, been when, when the fauth wather take to for
+What that waran, this shall of she beather;
+As 
+
+=== depth = 4 ===
+ROMEO:
+Be is the ere prespect
+Of the was of Clauke mother, and reporess
+Pray the ever the was despection her is a prescrent
+To vice their of the Lance unceilve?
+
+KING RICHARD III:
+Came, once by for I this peases in this mother:
+That alck my voult, and the 
+
+=== depth = 6 ===
+ROMEO:
+So I hast should in the place! what would be people
+Our many selves a father in thy both supper?
+
+Plovost:
+I would pardon bear to you are I can of it me
+Have parsion but all, here soul service so him.
+
+DUKE VINCENTIO:
+How thou nexerator him:
+Let and
+
+=== heads = 2 ===
+ROMEO:
+Play of thy althose from from thee live of may,
+And not her prive one a bove friend and my lord.
+
+DUKE OF YORK:
+Here is of the ear the she heaven to my trame,
+That carlous die dost true thereforous, the quen
+Banhand with the dill the would grief of 
+
+=== heads = 4 ===
+ROMEO:
+Be is the ere prespect
+Of the was of Clauke mother, and reporess
+Pray the ever the was despection her is a prescrent
+To vice their of the Lance unceilve?
+
+KING RICHARD III:
+Came, once by for I this peases in this mother:
+That alck my voult, and the 
+
+=== heads = 8 ===
+ROMEO:
+So I hast shall and a prison the we comport
+The cannot that feel despiet you have the hand part?
+
+Plovost:
+I was your with Came, seem a done shall it mife
+My parsion but all great of such will not heart,
+But broth in me the stong him one ower.
+
+SICI
+
+=== context = 64 ===
+ROMEO:
+Good city my soul bettle with him sir,
+And the say him the aftern find the oble,
+I say so he go save you dissce out fall wonns;
+For my sonder he may soul on the we the warl, this him.
+
+BRUTUS:
+An reverisege to you all he condess.
+
+CAPULINIUS:
+Well.
+
+
+=== context = 128 ===
+ROMEO:
+Be is the ere prespect
+Of the was of Clauke mother, and reporess
+Pray the ever the was despection her is a prescrent
+To vice their of the Lance unceilve?
+
+KING RICHARD III:
+Came, once by for I this peases in this mother:
+That alck my voult, and the 
+
+=== context = 256 ===
+ROMEO:
+My good Lord, there's warlien of all of His dusiping,
+And brunt be such despers of as honour repute
+As tall with thy shall his for them shep.
+
+ROMEO:
+Then, and trongs thy son do me; hearten corrt and as earth
+the could that hath to his fiend the day

@@ -1,0 +1,10 @@
+device: cuda  (batch=16, d_model=128, forward+backward)
+T    | LSTM sec | Attention sec | LSTM sequential steps | Attention score memory (MB)
+64   |   0.0049 |        0.0032 |                    64 |        1.0
+128  |   0.0027 |        0.0035 |                   128 |        4.0
+256  |   0.0050 |        0.0039 |                   256 |       16.0
+512  |   0.0095 |        0.0098 |                   512 |       64.0
+
+Sequential depth: LSTM needs T steps one after another (O(T)); attention needs O(1) sequential
+steps because all positions are computed at once. Trade-off: attention stores a T x T score
+matrix per head, so memory grows as O(T^2).

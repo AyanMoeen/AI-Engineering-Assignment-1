@@ -1,0 +1,42 @@
+MiniGPT summary - from checkpoint checkpoints/tiny_gpt.pt
+config: GPTConfig(vocab_size=65, context_length=128, d_model=256, n_heads=4, n_layers=4, ffn_dim=None, dropout=0.1, pos_type='sinusoidal', tie_weights=False)
+
+module                        parameters
+tok_emb                           16,640
+pos                                    0
+drop                                   0
+blocks                         3,159,040
+ln_f                                 512
+lm_head                           16,640
+
+TOTAL                          3,192,832  (3.19M)
+
+GPT(
+  (tok_emb): Embedding(65, 256)
+  (pos): SinusoidalPositionalEncoding()
+  (drop): Dropout(p=0.1, inplace=False)
+  (blocks): ModuleList(
+    (0-3): 4 x TransformerBlock(
+      (ln1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      (attn): MultiHeadAttention(
+        (q_proj): Linear(in_features=256, out_features=256, bias=True)
+        (k_proj): Linear(in_features=256, out_features=256, bias=True)
+        (v_proj): Linear(in_features=256, out_features=256, bias=True)
+        (out_proj): Linear(in_features=256, out_features=256, bias=True)
+        (attn_dropout): Dropout(p=0.1, inplace=False)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (ln2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      (ffn): FeedForward(
+        (net): Sequential(
+          (0): Linear(in_features=256, out_features=1024, bias=True)
+          (1): GELU(approximate='none')
+          (2): Linear(in_features=1024, out_features=256, bias=True)
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+  )
+  (ln_f): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  (lm_head): Linear(in_features=256, out_features=65, bias=False)
+)

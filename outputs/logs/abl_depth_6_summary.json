@@ -1,0 +1,11 @@
+{
+  "run": "abl_depth_6",
+  "params": 4772352,
+  "device": "cuda",
+  "train_time_s": 245.18709087371826,
+  "tokens_per_s": 66822.44135128001,
+  "peak_mem_mb": 1160.36279296875,
+  "train_loss": 1.490538477897644,
+  "val_loss": 1.6819393634796143,
+  "perplexity": 5.375971831224923
+}

@@ -1,0 +1,11 @@
+MultiHeadAttention(d_model=32, n_heads=4)  ->  d_k = d_model / n_heads = 8
+batch B=2, sequence length T=6
+
+input x                            (2, 6, 32)
+Q = x W_q (before split)           (2, 6, 32)
+Q after split_heads                (2, 4, 6, 8)
+scores = Q K^T / sqrt(d_k)         (2, 4, 6, 6)
+attention weights (softmax)        (2, 4, 6, 6)
+weights @ V (per head)             (2, 4, 6, 8)
+after merge_heads (concat)         (2, 6, 32)
+after output projection W_o        (2, 6, 32)

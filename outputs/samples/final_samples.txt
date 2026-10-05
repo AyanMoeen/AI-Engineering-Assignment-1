@@ -1,0 +1,102 @@
+checkpoint: checkpoints/tiny_gpt.pt
+train loss: 1.2831
+val loss:   1.5154
+val perplexity: 4.55
+
+=== 5 samples (temperature=0.8, top_k=40) ===
+--- prompt 1: 'ROMEO:' ---
+ROMEO:
+Whose stirs stayes presently may and one private to be
+my death; but thou dost right known such before:
+Ancient that I can in love that must the mine.
+
+DUKE OF AUMERLE:
+And soon God stop with me but the children of himself,
+So say the nature, as we say there be orason,
+And strength upon our presenc
+
+--- prompt 2: 'To be, or not to be' ---
+To be, or not to be a more banish'd.
+
+GLOUCESTER:
+I am not a wife!
+
+DERBY:
+Then be dreams, thou that the house the maid,
+Stand what fear hath not a bitter shall enforce
+That boy'd his death, and what his fathers?
+That hath all the eyes of the possesess string of
+thy kedgess to my pride and a words, strange
+And poor bu
+
+--- prompt 3: 'First Citizen:\n' ---
+First Citizen:
+She is be pat one which to his own and safe's grief
+The voice of gentle are death; and where?
+
+POLIXENES:
+I cannot resolve her looked,
+Nor my where true solemn him, and straight
+Shall be nothing in the shower profess;
+For you this arms to since both than sing:
+He is the king nature of fush substing 
+
+--- prompt 4: 'KING HENRY:\nWhat' ---
+KING HENRY:
+What would have you all that made it not.
+
+GLOUCESTER:
+No, brave the Eagle! then first you will me?
+Then, you shall at be reason. He comes them there will
+not dost be tendering in their watches of
+in the absent is wearing. O, sir, 'and subjects it?
+
+Provost:
+Thou hast thou hast thou lad! from the jewels
+
+--- prompt 5: 'JULIET:\nO Romeo,' ---
+JULIET:
+O Romeo, the lightly loves and are our loves:
+If our ender to his death, stead not so married:
+Fear the reason, where I may be done that doubt him
+both the forestial to the heir bods. Good grant
+Then beg the cause of his woman father.
+
+Lord:
+Some, good to flatter; and then, love from the mark,
+And we had fo
+
+=== greedy vs temperature sampling (prompt 'ROMEO:') ===
+[greedy (T=0)] distinct 4-grams = 0.31
+ROMEO:
+What is the sea that would have seen the sea
+As the sea that will be so much a short of the sea
+that the season of the season of the seasons,
+And the season of the season of the seasons,
+And the season of the season of the seasons,
+And the season of the season of the seasons,
+And the season of the 
+
+[T=0.8] distinct 4-grams = 0.95
+ROMEO:
+Our honour right of your heads?
+
+POLIXENES:
+Pretty his murder what I should see thee;
+But where I will not not be company.
+Here is he speak my place and clamour that
+To last those consent remove on him of the gods
+The gass perforce bosom, who good with their pursuits,
+And I have to thee to call oth
+
+[T=1.2] distinct 4-grams = 0.95
+ROMEO:
+Our Jothward, hear tempen this as herd?
+
+ROMEO:
+So he had my protector, when blesser a linds,
+Where issue, and corceise old you know not me;
+I will not ensumpet that worlds and auncing
+Grace our sworn; after's that beauty open;
+Ely bosomly to good with their pubosing son;
+I have to thee to call be;

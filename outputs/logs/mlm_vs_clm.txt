@@ -1,0 +1,7 @@
+Comparison experiment: change ONLY the last token, look at the output of position 0
+  bidirectional (BERT-style) max change at position 0: 0.127454   <- position 0 'sees the future'
+  causal        (GPT-style)  max change at position 0: 0.000000   <- future is blocked
+
+Why it matters: BERT predicts a masked word using BOTH sides, so it needs full attention.
+GPT is trained to predict the NEXT token; if it could see the future, it would just copy
+the answer, so the causal mask is required for training and for generation.
