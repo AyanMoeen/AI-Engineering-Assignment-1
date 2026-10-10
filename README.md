@@ -23,7 +23,7 @@ component written by hand in PyTorch. **No pretrained models and no `transformer
 ## Setup
 
 ```bash
-git clone <YOUR_REPO_URL> && cd transformer-gpt-assignment
+git clone https://github.com/AyanMoeen/AI-Engineering-Assignment-1.git && cd AI-Engineering-Assignment-1
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
@@ -48,7 +48,7 @@ python -m src.train --config configs/tiny_gpt.yaml
 
 # 5. inference
 python -m src.generate --prompt "ROMEO:" --max-new-tokens 200 --temperature 0.8
-python -m src.generate --checkpoint-url <CHECKPOINT_LINK> --prompt "ROMEO:"    # download checkpoint first
+python -m src.generate --checkpoint-url https://github.com/AyanMoeen/AI-Engineering-Assignment-1/releases/download/v1.0/tiny_gpt.pt --prompt "ROMEO:"
 
 # 6. evaluation, attention plot, ablations
 python -m experiments.evaluate
@@ -80,7 +80,7 @@ batch 64, 5000 steps. About 3.19M parameters. Change anything in `configs/tiny_g
 
 ## Deploy (Render)
 
-1. Upload `checkpoints/tiny_gpt.pt` as a GitHub Release asset (or a public link) and copy its direct download URL.
+1. The checkpoint is published at: https://github.com/AyanMoeen/AI-Engineering-Assignment-1/releases/download/v1.0/tiny_gpt.pt
 2. On Render: New + -> Blueprint -> pick this repo (`render.yaml` is included).
 3. Set the env var `CHECKPOINT_URL` to that link. Open `/docs` to try the API, `/health` to check the model loaded.
 
