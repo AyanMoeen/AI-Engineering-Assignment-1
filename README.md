@@ -2,6 +2,8 @@
 
 **Live API:** https://ai-engineering-assignment-1-production.up.railway.app/docs
 
+**Report:** https://medium.com/@i230124/building-a-small-gpt-from-scratch-1807dab5e3d8
+
 A GPT-style causal language model (character-level, trained on Tiny Shakespeare) with every Transformer
 component written by hand in PyTorch. **No pretrained models and no `transformers` library.**
 
