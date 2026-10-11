@@ -1,5 +1,7 @@
 # MiniGPT: a small GPT built from scratch
 
+**Live API:** https://ai-engineering-assignment-1-production.up.railway.app/docs
+
 A GPT-style causal language model (character-level, trained on Tiny Shakespeare) with every Transformer
 component written by hand in PyTorch. **No pretrained models and no `transformers` library.**
 
