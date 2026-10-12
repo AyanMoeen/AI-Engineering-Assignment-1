@@ -1,8 +1,22 @@
 # MiniGPT: a small GPT built from scratch
 
-**Live API:** https://ai-engineering-assignment-1-production.up.railway.app/docs
+AI Engineering | Transformer Deep Dive assignment
 
-**Report:** https://medium.com/@i230124/building-a-small-gpt-from-scratch-1807dab5e3d8
+## Team
+
+| Name | Roll number |
+|---|---|
+| Ayan Bin Moeen | 23I-0124 |
+| Mir Ahmed | 23I-0142 |
+
+## Links
+
+- **Live API:** https://ai-engineering-assignment-1-production.up.railway.app/docs
+- **Report (Medium):** https://medium.com/@i230124/building-a-small-gpt-from-scratch-1807dab5e3d8
+- **Slides:** [presentation and demo/MiniGPT_presentation.pdf](presentation/MiniGPT_presentation.pdf)
+- **Demo video:** ADD-YOUR-VIDEO-LINK-HERE
+- **Colab demo:** [Open in Colab](https://colab.research.google.com/github/AyanMoeen/AI-Engineering-Assignment-1/blob/main/notebooks/colab_demo.ipynb)
+- **Checkpoint:** https://github.com/AyanMoeen/AI-Engineering-Assignment-1/releases/download/v1.0/tiny_gpt.pt
 
 A GPT-style causal language model (character-level, trained on Tiny Shakespeare) with every Transformer
 component written by hand in PyTorch. **No pretrained models and no `transformers` library.**
@@ -22,7 +36,9 @@ component written by hand in PyTorch. **No pretrained models and no `transformer
 | Experiments and figures | `experiments/` |
 | Config | `configs/tiny_gpt.yaml` |
 | Colab notebook | `notebooks/colab_demo.ipynb` |
-| Report template | `report/REPORT_TEMPLATE.md` |
+| API deployment (Railway) | `Dockerfile`, `requirements-api.txt` |
+| Report (published copy used for Medium) | `docs/` |
+| Presentation | `presentation/` |
 
 ## Setup
 
@@ -35,7 +51,7 @@ pip install -r requirements.txt
 ## Commands
 
 ```bash
-# 1. unit tests (attention, causal mask, shapes, overfit, API)
+# 1. unit tests (attention, causal mask, shapes, overfit, pipeline, API)
 python -m pytest -q
 
 # 2. evidence figures 1-5 + BERT-vs-GPT + sequential-vs-parallel
@@ -59,7 +75,7 @@ python -m experiments.evaluate
 python -m experiments.attention_visualization --layer -1
 python -m experiments.ablation --experiments depth heads context --steps 2000
 
-# 7. REST API
+# 7. REST API (local)
 uvicorn src.api:app --port 8000
 curl -X POST localhost:8000/generate -H "Content-Type: application/json" -d '{"prompt":"ROMEO:","max_new_tokens":100}'
 ```
@@ -79,26 +95,41 @@ temperature: 0.8
 ## Default model
 
 `d_model=256, n_heads=4, n_layers=4, ffn_dim=4*d_model, context=128, dropout=0.1`, AdamW (lr 3e-4, warm-up + cosine decay),
-batch 64, 5000 steps. About 3.19M parameters. Change anything in `configs/tiny_gpt.yaml` or with CLI flags
+batch 64, 5000 steps. 3,192,832 parameters. Final result: train loss 1.2818, validation loss 1.5052, perplexity 4.51
+(about 7.6 minutes on a Colab T4). Change anything in `configs/tiny_gpt.yaml` or with CLI flags
 (`--n-layers`, `--n-heads`, `--context-length`, `--d-model`, `--pos-type`, `--max-steps`).
 
-## Deploy (Render)
+## Deployment (Railway)
 
-1. The checkpoint is published at: https://github.com/AyanMoeen/AI-Engineering-Assignment-1/releases/download/v1.0/tiny_gpt.pt
-2. On Render: New + -> Blueprint -> pick this repo (`render.yaml` is included).
-3. Set the env var `CHECKPOINT_URL` to that link. Open `/docs` to try the API, `/health` to check the model loaded.
+The API is live at https://ai-engineering-assignment-1-production.up.railway.app/docs (health check: `/health`).
 
-The free tier sleeps when idle, so the first request can take about 1 minute.
+It is built from the `Dockerfile` in this repo, which installs CPU PyTorch and the API dependencies from
+`requirements-api.txt`, then starts `uvicorn src.api:app`. The checkpoint is not stored in the repository: the
+`CHECKPOINT_URL` environment variable (set in the Dockerfile, and overridable in Railway's Variables tab) points to the
+GitHub release asset, and the API downloads it on startup.
+
+To deploy your own copy:
+
+1. On railway.com: New Project -> Deploy from GitHub repo -> select this repo. Railway detects the `Dockerfile`.
+2. Open the service -> Settings -> Networking -> Generate Domain.
+3. Open `/health` to confirm the model loaded (`"status": "ok"`), then `/docs` to try `POST /generate`.
+
+Railway's free trial runs on limited credit, and idle services may be slow on the first request. `render.yaml` is also
+included as an alternative for Render, but Render now asks for a payment card, even for free services.
 
 ## Known limitations
 
 - Character-level model: it learns spelling and play format, but not long-range meaning. Text looks like Shakespeare but is not coherent.
-- Only about 1 MB of training text, so the model overfits if trained too long or made too large.
+- Only about 1 MB of training text, so the model overfits if trained too long or made too large (train 1.28 vs validation 1.51).
 - Context is 128 characters, so it forgets anything earlier.
+- Greedy decoding falls into repetition loops; temperature sampling with top-k avoids this.
 - Generated text is an experiment, not factual.
-- Speed tests on CPU can show attention slower than an LSTM at long sequences (T^2 cost); the parallel advantage shows on GPU.
+- In our speed test, attention and an LSTM ran at similar speed at these small sizes; the O(1) sequential-depth advantage of attention is theoretical here, while its O(T^2) memory cost was measured.
+- Ablations used one seed and 2,000 steps each, so small differences (for example between head counts) may be noise.
 
 ## Sources
 
-Tiny Shakespeare dataset (Karpathy, char-rnn). Architecture from "Attention Is All You Need" (Vaswani et al., 2017) and GPT-2 style
-pre-LayerNorm blocks. Add any tutorials or code you consulted here.
+- Tiny Shakespeare dataset: Andrej Karpathy, char-rnn (https://github.com/karpathy/char-rnn).
+- "Attention Is All You Need" (Vaswani et al., 2017); GPT-2 style pre-LayerNorm blocks (Radford et al., 2019); BERT (Devlin et al., 2018) for the masked-language-model comparison.
+- AI assistance was used for coding and writing support, as permitted by the assignment. Both authors can explain every component.
+- Add any tutorials or code you consulted here.
