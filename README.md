@@ -14,7 +14,7 @@ AI Engineering | Transformer Deep Dive assignment
 - **Live API:** https://ai-engineering-assignment-1-production.up.railway.app/docs
 - **Report (Medium):** https://medium.com/@i230124/building-a-small-gpt-from-scratch-1807dab5e3d8
 - **Slides:** [presentations and demo/MiniGPT_presentation.pdf](presentation/MiniGPT_presentation.pdf)
-- **Demo video:** ADD-YOUR-VIDEO-LINK-HERE
+- **Demo video:** (https://drive.google.com/file/d/1P7DiRDaaQqikpTxKFJShnB1WVb0UWWU9/view?usp=sharing)
 - **Colab demo:** [Open in Colab](https://colab.research.google.com/github/AyanMoeen/AI-Engineering-Assignment-1/blob/main/notebooks/colab_demo.ipynb)
 - **Checkpoint:** https://github.com/AyanMoeen/AI-Engineering-Assignment-1/releases/download/v1.0/tiny_gpt.pt
 
